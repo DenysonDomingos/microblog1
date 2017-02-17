@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Microblog</title>
+    <title><%= yield(:page_title) %> | Microblog</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/navbar' %>
+    <div class="container <%= controller_name %> <%= action_name %>">
+      <%= yield %>
+    </div>  
   </body>
 </html>
