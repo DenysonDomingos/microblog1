@@ -1,10 +1,10 @@
 module Blog
-	class PostsController < BlogController	  
+	class PostsController < BlogController
 
 	  # GET /posts
 	  # GET /posts.json
-	  def index	  	
-	    @posts = Post.most_recent.published.paginate(:page => params[:page], per_page: 2)
+	  def index
+	    @posts = Post.most_recent.published.paginate(:page => params[:page], per_page: 6)
 	  end
 
 	  # GET /posts/1
