@@ -4,6 +4,7 @@
 		<div class="card-block">
 			<h4 class="card-title"><%= link_to post.title, post %></h4>
 			<p class="published-date"><%= post.display_day_published %></p>
+			<small>Created by: <%= post.author %></small>
 			<p class="card-test"><%= truncate(post.description, length: 130) %></p>
 			<%= link_to 'Read', post, class: 'btn btn-read' %>
 		</div>

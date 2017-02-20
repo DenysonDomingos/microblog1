@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :authors
-	root to: '_blog/pages#home'
+  devise_for :authors, controllers: {
+    registrations: 'authors/registrations' }
+
+  root to: '_blog/pages#home'
 
 	namespace :authors do
 		resources :posts do
