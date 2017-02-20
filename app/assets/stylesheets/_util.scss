@@ -27,3 +27,17 @@
     color: black; }
     .apple_pagination a:hover, .apple_pagination a:focus {
       text-decoration: underline; }
+
+.center{
+  text-align: center;
+}
+
+.jumbotron{
+  background-image: asset_url('IT.png');
+  background-size: cover;
+  height: 550px;
+}
+
+.jumbotron .lead{
+  margin-top: 250px;
+}

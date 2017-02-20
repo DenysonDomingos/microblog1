@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :authors
-	root to: '_blog/posts#index'
+	root to: '_blog/pages#home'
 
 	namespace :authors do
 		resources :posts do
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 	end
 
 	scope module: 'blog' do
-		get 'about' => 'pages#about', as: :about		
+		get 'about' => 'pages#about', as: :about
 		get 'posts' => 'posts#index', as: :posts
 		get 'posts/:id' => 'posts#show', as: :post
 	end
