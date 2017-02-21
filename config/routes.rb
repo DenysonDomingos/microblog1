@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 		end
 	end
 
-  get 'perfil/:id' => 'perfil/posts#index', as: :author
+  get 'perfil/:id' => 'perfil/posts#show', as: :author
 
 	scope module: 'blog' do
 		get 'about' => 'pages#about', as: :about
