@@ -1,0 +1,13 @@
+<h1 align="center">Welcome to <%= @author.name %>'s page</h1>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 center">
+    <%= gravatar_tag @author.email, :size => 140 %>
+  </div>
+</div>
+<h4 align="center"><%= @author.name %>'s posts</h4>
+<div class="row">
+  <%= render @posts %>
+</div>
+<div class="apple_pagination">
+  <%= will_paginate @posts, container: false %>
+</div>
