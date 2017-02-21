@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to <%= @author.name %>'s page</h1>
 <div class="row ">
   <div class="gravatar">
-    <img src="<%= h(gravatar_url(@author.email, :size => 140)) %>" alt="Gravatar", style="border-radius: 100px;"/>
+    <%= gravatar_for @author, size: 140 %>
   </div>
 </div>
 <div class="perfil-posts">

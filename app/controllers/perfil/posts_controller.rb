@@ -4,7 +4,7 @@ module Perfil
 	  # GET /posts
 	  # GET /posts.json
 	  def index
-			@post = Author.all
+			@authors = Author.all
 	  end
 
 	  # GET /posts/1

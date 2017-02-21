@@ -1,10 +1,16 @@
-<% provide(:page_title, @post.title) %>
-<% provide(:blog_active, 'active') %>
+<% provide(:bloggers_active, 'active') %>
 
-<div class="row">
-  <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center">
-    <h1><%= @post.title %></h1>
-    <p><%= @post.display_day_published %></p>
-    <%= @post.body.html_safe %>
-  </div>
-</div>
+<h1 class="center"> All Bloggers</h1>
+<% @authors.each do |author| %>
+  <ul class="listing">
+    <div class="row">
+      <div class="gravatar1">
+        <li><%= link_to gravatar_for(author), author_path(author) %></li>
+        <li class="article-title">
+          <%= link_to author.name, author_path(author) %>
+        </li>
+        <li><small><%= pluralize(author.posts.count, "posts") if author.posts %></small></li>
+      </div>
+    </div>
+  </ul>
+<% end %>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 		end
 	end
 
+  get 'perfil' => 'perfil/posts#index'
   get 'perfil/:id' => 'perfil/posts#show', as: :author
 
 	scope module: 'blog' do

@@ -4,7 +4,22 @@
 <div class="row">
   <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center">
     <h1><%= @post.title %></h1>
+    <% if @post.author %>
+      <ul class="listing">
+        <div class="row">
+          <div class="gravatar2">
+            <li>Created by:</li>
+            <li><%= link_to gravatar_for(@post.author), author_path(@post.author) %></li>
+            <li class="article-title">
+              <%= link_to @post.author.name, author_path(@post.author) %>
+            </li>
+            <li><small><%= pluralize(@post.author.posts.count, "posts") if @post.author.posts %></small></li>
+          </div>
+        </div>
+      </ul>
+    <% end %>
     <p><%= @post.display_day_published %></p>
+    <br><br>
     <%= @post.body.html_safe %>
   </div>
 </div>
