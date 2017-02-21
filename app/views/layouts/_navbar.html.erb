@@ -48,10 +48,14 @@
     </ul>
     <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
       <% if author_signed_in? %>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search Blogger">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+        <%= form_tag(perfil_path, :method => "get", :class => "form-inline") do %>
+          <div class="input-group">
+           <%= text_field_tag :search, params[:search], :class => "form-control mr-sm-2", placeholder: "Search Blogger" %>
+          </div>
+          <%= button_tag(type: 'submit', class: "btn btn-outline-success my-2 my-sm-0") do %>
+                  <i class="icon-repeat"></i> Search
+          <% end %>
+        <% end %>
         <li class="nav-item">
           <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "nav-link" %>
         </li>

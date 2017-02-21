@@ -4,7 +4,7 @@ module Perfil
 	  # GET /posts
 	  # GET /posts.json
 	  def index
-			@authors = Author.all
+			@authors = Author.where(["name LIKE ?", "%#{params[:search]}%"])
 	  end
 
 	  # GET /posts/1
