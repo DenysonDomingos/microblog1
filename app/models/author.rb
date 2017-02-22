@@ -24,6 +24,28 @@ class Author < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :trackable, :validatable
 
+  has_many :passive_relationships, class_name: "Relationship",
+                                   foreign_key: "followed_id",
+                                   dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
+
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
+  has_many :followings, through: :active_relationships, source: :followed
+
+  def follow(other_author)
+    active_relationships.create(followed_id: other_author.id)
+  end
+
+  def unfollow(other_author)
+    active_relationships.find_by(followed_id: other_author.id).destroy
+  end
+
+  def following?(other_author)
+    following_ids.include?(other_author.id)
+  end
+
   has_many :posts
 
 end

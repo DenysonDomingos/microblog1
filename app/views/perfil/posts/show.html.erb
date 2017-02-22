@@ -13,3 +13,6 @@
 <div class="apple_pagination">
   <%= will_paginate @posts, container: false %>
 </div>
+<% if author_signed_in? && !(current_author.id == @author.id) %>
+  <button>Follow</button>
+<% end %>
