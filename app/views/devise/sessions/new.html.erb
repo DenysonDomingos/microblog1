@@ -5,12 +5,14 @@
     <%= form_group_for f, :email, label: false do %>
       <div class="input-group">
         <%= f.email_field :email, class: 'form-control input-lg', placeholder: 'Email' %>
+        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
       </div>
     <% end %>
 
     <%= form_group_for f, :password, label: false do %>
       <div class="input-group">
-        <%= f.password_field :password, class: 'form-control input-lg', placeholder: 'Password' %>      
+        <%= f.password_field :password, class: 'form-control input-lg', placeholder: 'Password' %>
+        <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
       </div>
     <% end %>
 

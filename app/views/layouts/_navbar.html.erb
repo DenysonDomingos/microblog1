@@ -44,10 +44,6 @@
         <li class="nav-item">
           <%= link_to 'My posts', authors_posts_path, class: "nav-link #{yield(:author)}" %>
         </li>
-      <% end %>
-    </ul>
-    <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
-      <% if author_signed_in? %>
         <%= form_tag(perfil_path, :method => "get", :class => "form-inline") do %>
           <div class="input-group">
            <%= text_field_tag :search, params[:search], :class => "form-control mr-sm-2", placeholder: "Search Blogger" %>
@@ -56,6 +52,20 @@
                   <i class="icon-repeat"></i> Search
           <% end %>
         <% end %>
+      <% end %>
+    </ul>
+    <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
+      <% if author_signed_in? %>
+        <li class="nav-item btn-group" data-behavior="notifications">
+          <a class="dropdown-toggle nav-link" data-behavior="notifications-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded>
+            <i class="fa fa-bell" aria-hidden="true"></i><span data-behavior="unread-count"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelleby="dropdownMenu1" data-behavior="notification-items">
+            <!-- <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+          </div>
+        </li>
         <li class="nav-item">
           <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "nav-link" %>
         </li>

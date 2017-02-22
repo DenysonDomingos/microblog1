@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 
   resource :relationships, only: [:create, :destroy]
 
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
+
 	namespace :authors do
 		resources :posts do
 			put 'publish' => 'posts#publish', on: :member

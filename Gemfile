@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+gem 'font-awesome-sass'
+
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 
