@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root to: '_blog/pages#home'
 
+  resource :relationships, only: [:create, :destroy]
+
 	namespace :authors do
 		resources :posts do
 			put 'publish' => 'posts#publish', on: :member

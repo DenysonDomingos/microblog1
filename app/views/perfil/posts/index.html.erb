@@ -5,7 +5,16 @@
   <ul class="listing">
     <div class="row">
       <div class="gravatar1">
-        <li><%= link_to gravatar_for(author), author_path(author) %></li>
+        <li><%= link_to gravatar_for(author), author_path(author) %>
+          <% if author_signed_in? && !(current_author.id == author.id) %>
+            <% if current_author.following?(author) %>
+              <%= button_to "Unfollow", relationships_path(author_id: author.id),
+                  method: :delete, class: "btn btn-secondary btn-sm" %>
+            <% else %>
+              <%= button_to "Follow", relationships_path(author_id: author.id), class: "btn btn-info btn-sm" %>
+            <% end %>
+          <% end %>
+        </li>
         <li class="article-title">
           <%= link_to author.name, author_path(author) %>
         </li>
