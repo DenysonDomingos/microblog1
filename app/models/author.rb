@@ -46,6 +46,8 @@ class Author < ApplicationRecord
     following_ids.include?(other_author.id)
   end
 
+  has_many :notifications, foreign_key: :recipient_id
+
   has_many :posts
 
 end
