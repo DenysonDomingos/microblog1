@@ -24,6 +24,8 @@ class Author < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :trackable, :validatable
 
+  has_many :posts, dependent: :destroy
+
   has_many :passive_relationships, class_name: "Relationship",
                                    foreign_key: "followed_id",
                                    dependent: :destroy
@@ -47,7 +49,5 @@ class Author < ApplicationRecord
   end
 
   has_many :notifications, foreign_key: :recipient_id
-
-  has_many :posts
 
 end

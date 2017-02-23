@@ -56,6 +56,7 @@ group :test do
   gem "capybara"
   gem 'factory_girl_rails'
   gem 'faker'
+   gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
