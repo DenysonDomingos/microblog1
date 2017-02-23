@@ -49,7 +49,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'simplecov', :require => false, :group => :test
+  gem 'rspec-rails', '~> 3.5'
+end
 
+group :test do
+  gem "capybara"
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do
