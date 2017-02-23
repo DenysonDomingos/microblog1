@@ -31,30 +31,4 @@ RSpec.describe Author, type: :model do
       through(:active_relationships).
       source(:followed)
   end
-
-  describe "following and unfollowing other users" do
-    let(:luke) { create(:author, name: "Luke Chef")}
-    let(:solo) { create(:author, name: "Cal Solo")}
-
-    scenario "adds relationships between the two authors" do
-      sign_in luke
-
-      visit perfil_path(solo)
-      click_on "Follow"
-      expect(page).not_to have_button("Follow")
-      expect(page).to have_button("Unfollow")
-
-      click_on "Unfollow"
-      expect(page).not_to have_button("Unfollow")
-      expect(page).to have_button("Follow")
-
-      # luke.follow(solo)
-      # expect(luke.following?(solo)).to be_truthy
-      # expect(solo.followers).to include(luke)
-      #
-      # luke.unfollow(solo)
-      # expect(luke.following?(solo)).to be_falsy
-      # expect(solo.followers).not_to include(luke)
-    end
-  end
 end
