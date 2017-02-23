@@ -7,7 +7,7 @@
     <% if @post.author %>
       <ul class="listing">
         <div class="row">
-          <div class="gravatar2">
+          <div class="gravatar">
             <li>Created by:</li>
             <li><%= link_to gravatar_for(@post.author), author_path(@post.author) %></li>
             <li class="article-title">

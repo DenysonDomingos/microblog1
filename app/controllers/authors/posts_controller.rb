@@ -39,11 +39,9 @@ module Authors
 
 	    respond_to do |format|
 	      if @post.save
-
 					current_author.passive_relationships.each do |follower|
-						Notification.create(follower_id: follower.id, author_id: current_author.id, action: "posted" , notifiable: @post)
+						Notification.create(recipient_id: follower.follower_id, author_id: current_author.id, action: "posted" , notifiable: @post)
 					end
-
 	        format.html { redirect_to authors_post_path(@post), notice: 'Post was successfully created.' }
 	        format.json { render :show, status: :created, location: @post }
 	      else

@@ -4,7 +4,7 @@
 <% @authors.each do |author| %>
   <ul class="listing">
     <div class="row">
-      <div class="gravatar1">
+      <div class="gravatar">
         <li><%= link_to gravatar_for(author), author_path(author) %>
           <% if author_signed_in? && !(current_author.id == author.id) %>
             <% if current_author.following?(author) %>
