@@ -5,7 +5,7 @@ json.array! @notifications do |notification|
   json.action notification.action
   # notification.notifiable
   json.notifiable do
-    json.type "'#{notification.notifiable.title}'"
+    json.type "'#{notification.notifiable}'"
   end
   json.url post_path(notification.notifiable, anchor: dom_id(notification.notifiable))
 end

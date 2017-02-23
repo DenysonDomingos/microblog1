@@ -4,6 +4,7 @@ class RelationshipsController < ApplicationController
 
   def create
     current_author.follow(@author)
+    Notification.create(recipient_id: @author.id, author_id: current_author.id, action: "follow you" , notifiable: @author)
     redirect_to(:back)
   end
 
