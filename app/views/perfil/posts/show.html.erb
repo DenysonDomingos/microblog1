@@ -1,0 +1,24 @@
+<h1 align="center">Welcome to <%= @author.name %> page
+  <% if author_signed_in? && !(current_author.id == @author.id) %>
+    <% if current_author.following?(@author) %>
+      <%= button_to "Unfollow", relationships_path(author_id: @author.id),
+          method: :delete, class: "btn btn-secondary btn-sm" %>
+    <% else %>
+      <%= button_to "Follow", relationships_path(author_id: @author.id), class: "btn btn-info btn-sm" %>
+    <% end %>
+  <% end %>
+</h1>
+<div class="row ">
+  <div class="gravatar">
+    <%= gravatar_for @author, size: 140 %>
+  </div>
+</div>
+<div class="perfil-posts">
+  <h5 align="center"><%= @author.name %> posts</h5>
+</div>
+<div class="row">
+  <%= render @posts %>
+</div>
+<div class="apple_pagination">
+  <%= will_paginate @posts, container: false %>
+</div>

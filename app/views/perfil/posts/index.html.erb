@@ -1,0 +1,28 @@
+<% provide(:bloggers_active, 'active') %>
+
+<h1 class="center"> All Bloggers</h1>
+<% @authors.each do |author| %>
+  <ul class="listing">
+    <div class="row">
+      <div class="gravatar">
+        <li><%= link_to gravatar_for(author), author_path(author) %>
+          <% if author_signed_in? && !(current_author.id == author.id) %>
+            <% if current_author.following?(author) %>
+              <%= button_to "Unfollow", relationships_path(author_id: author.id),
+                  method: :delete, class: "btn btn-secondary btn-sm" %>
+            <% else %>
+              <%= button_to "Follow", relationships_path(author_id: author.id), class: "btn btn-info btn-sm" %>
+            <% end %>
+          <% end %>
+        </li>
+        <li class="article-title">
+          <%= link_to author.name, author_path(author) %>
+        </li>
+        <li><small><%= pluralize(author.posts.count, "posts") if author.posts %></small></li>
+      </div>
+    </div>
+  </ul>
+<% end %>
+<div class="apple_pagination">
+  <%= will_paginate @authors, container: false %>
+</div>

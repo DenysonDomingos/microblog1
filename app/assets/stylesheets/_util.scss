@@ -27,3 +27,31 @@
     color: black; }
     .apple_pagination a:hover, .apple_pagination a:focus {
       text-decoration: underline; }
+
+.center{
+  text-align: center;
+}
+
+.gravatar{
+  margin: auto;
+}
+
+.listing{
+  list-style: none;
+  padding-left: 0;
+}
+
+.perfil-posts{
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.jumbotron{
+  background-image: asset_url('IT.png');
+  background-size: cover;
+  height: 550px;
+}
+
+.jumbotron .lead{
+  margin-top: 250px;
+}

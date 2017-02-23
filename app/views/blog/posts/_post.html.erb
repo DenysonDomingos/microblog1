@@ -6,6 +6,7 @@
 			<p class="published-date"><%= post.display_day_published %></p>
 			<p class="card-test"><%= truncate(post.description, length: 130) %></p>
 			<%= link_to 'Read', post, class: 'btn btn-read' %>
+			<p class="created-by">Created by: <%= post.author.name if post.author %></p>
 		</div>
 	</div>
 </div>

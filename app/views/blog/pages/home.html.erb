@@ -1,0 +1,11 @@
+<div class="center jumbotron">
+  <% if author_signed_in? %>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg", href="/posts", role="button">All Posts</a>
+    </p>
+  <% else %>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg", href="/authors/sign_up", role="button">Sign up now</a>
+    </p>
+  <% end %>
+</div>
