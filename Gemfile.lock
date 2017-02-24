@@ -272,11 +272,8 @@ DEPENDENCIES
   pg
   puma (~> 3.0)
   rails (~> 5.0.1)
-<<<<<<< HEAD
   rails_12factor
-=======
   rspec-rails (~> 3.5)
->>>>>>> f2758a9e1926e04c0625195e973c4734450ef05d
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)
   simplecov
