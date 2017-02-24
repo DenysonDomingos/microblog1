@@ -17,7 +17,6 @@
 //= require_tree
 //= require jquery
 //= require jquery_ujs
-//= require tinymce-jquery
 
 document.addEventListener("turbolinks:load", function() {
   tinymce.remove();
