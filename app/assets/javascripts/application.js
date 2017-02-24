@@ -14,11 +14,13 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require_tree
+//= require jquery
+//= require jquery_ujs
 
 document.addEventListener("turbolinks:load", function() {
   tinymce.remove();
-  tinymce.init({ 
+  tinymce.init({
   	height: '476',
   	selector:'textarea#post_body',
   	plugins: "codesample image media link code",
